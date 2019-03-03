@@ -50,6 +50,13 @@ example_3 = [
 
 #Function to test a single schedule example
 def test_schedule(schedule)
-    #Due to the 'free' 30 minutes at the beginning or end of the day for off-site meetings, and the ability to overlap the travel in between two off-site meetings
-    # it seems best to start by grouping all off-site meetings together and trying to fit those onto the schedule;  Next attempt to fit the on-site meetings into the schedule as a group alongside the off-site block
+    # Logical Flow of Testing a Schedule
+    # Due to the 'free' 30 minutes at the beginning or end of the day for off-site meetings, and the ability to overlap the travel in between two off-site meetings
+    # it seems that the way to fit the most meetings into a day is to start by grouping all off-site meetings together and trying to fit those onto the schedule;  Next attempt to fit the on-site meetings into the schedule as a group alongside the off-site block
+    #
+    # Considerations for the Solution:
+    # This method relies on grouping together off-site and on-site meetings.  Given the instructions of the exercise, providing only one working solution for each set of meetings is fine,
+    # but in a production environment, giving the same type of suggestions (where all off-site and on-site meetings are back-to-back) regularly might not be ideal.
+    # In that case, we could opt for an algorithm that would test each combination of the meetings (this type of combinatorial algorithm could get unwieldy if provided a lot of meetings, but there are some optimizations that could help).
+    # This algorithm could then provide several different options based on which orderings were valid.
 end
