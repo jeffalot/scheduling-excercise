@@ -46,3 +46,10 @@ example_3 = [
 # 10:00 - 10:30 - Meeting 1
 # 11:00 - 2:00 - Meeting 4
 # 2:30 - 5:00 - Meeting 3
+
+
+#Function to test a single schedule example
+def test_schedule(schedule)
+    #Due to the 'free' 30 minutes at the beginning or end of the day for off-site meetings, and the ability to overlap the travel in between two off-site meetings
+    # it seems best to start by grouping all off-site meetings together and trying to fit those onto the schedule;  Next attempt to fit the on-site meetings into the schedule as a group alongside the off-site block
+end
