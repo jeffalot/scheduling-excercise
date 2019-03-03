@@ -10,7 +10,7 @@ Differences to keep in mind that could be handy or problematic
 ### Ruby Style Norms
 * Boolean variable names should end with question marks
 * Variable names are typically lowercase snake_case
-
+* Multi-line comments are not typically used supposedly? Just use a series of single-line comments
 
 ## References
 * https://github.com/ThibaultJanBeyer/cheatsheets/blob/master/Ruby-Cheatsheet.md
