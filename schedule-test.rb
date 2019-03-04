@@ -107,13 +107,13 @@ def test_schedule(schedule)
   current_time = start_of_the_work_day
   offsite_meetings.each do |meeting|
     #TODO Fix the formatting
-    puts "#{current_time % 12} - #{(meeting[:duration] + current_time) % 12} - #{meeting[:name]}"
+    puts "#{current_time % 12} - #{(meeting[:duration] + current_time) % 12} - #{meeting[:name]} - #{meeting[:type]}"
     current_time += meeting[:duration]
     current_time += 0.5
   end
   onsite_meetings.each do |meeting|
     #TODO Fix the formatting
-    puts "#{current_time % 12} - #{(meeting[:duration] + current_time) % 12} - #{meeting[:name]}"
+    puts "#{current_time % 12} - #{(meeting[:duration] + current_time) % 12} - #{meeting[:name]} - #{meeting[:type]}"
     current_time += meeting[:duration]
   end
 
