@@ -74,7 +74,7 @@ def test_schedule(schedule)
         onsite_meetings.push(meeting)
     end
 
-    puts meeting[:name]
+    # puts meeting[:name]
    end
 
   # puts "Offsite Meetings:"
@@ -86,23 +86,25 @@ def test_schedule(schedule)
 
     #Add an additional 30 minutes of travel time that occurs after meeting conclusion
     # If there are no onsite meetings, we will deduct a .5 since the last meeting's post-travel can occur after working hours
-    proposed_work_hours += .5
+    proposed_work_hours += 0.5
   end
 
   if(onsite_meetings.size == 0)
-    proposed_work_hours -= .5
+    proposed_work_hours -= 0.5
   end
 
-  # #TODO verify this is only run if offsite_meetings is populated
-  # offsite_meetings.last do |meeting|
-  #
-  # end
+  onsite_meetings.each do |meeting|
+    proposed_work_hours += meeting[:duration]
+  end
 
-  puts "Onsite Meetings:"
-  puts onsite_meetings
+  if(proposed_work_hours > available_work_hours)
+    puts "Schedule Won't Fit"
+  else
+    puts "Schedule Will Fit"
+  end
 
 end
 
 test_schedule(example_1)
-# test_schedule(example_2)
-# test_schedule(example_3)
+test_schedule(example_2)
+test_schedule(example_3)
