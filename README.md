@@ -12,6 +12,7 @@ Differences to keep in mind that could be handy or problematic
 * Variable names are typically lowercase snake_case
 * Method names are also lowercase snake_case
 * Multi-line comments are not typically used supposedly? Just use a series of single-line comments
+* Each loops are used in preference over for loops
 
 ## References
 * https://github.com/ThibaultJanBeyer/cheatsheets/blob/master/Ruby-Cheatsheet.md
