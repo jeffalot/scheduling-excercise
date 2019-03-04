@@ -104,17 +104,19 @@ def test_schedule(schedule)
 
   #Next print out a possible schedule with the correct times
 
-  current_time = start_of_the_work_day
+  puts "One possible solution would be:"
+  current_time = Time.new(1991, 01, 01, start_of_the_work_day, 0, 0, "+05:00")
+
   offsite_meetings.each do |meeting|
     #TODO Fix the formatting
-    puts "#{current_time % 12} - #{(meeting[:duration] + current_time) % 12} - #{meeting[:name]} - #{meeting[:type]}"
-    current_time += meeting[:duration]
-    current_time += 0.5
+    puts "#{current_time.hour} - #{(meeting[:duration] + current_time.hour)} - #{meeting[:name]} - #{meeting[:type]}"
+    current_time += (meeting[:duration] * 60 * 60)
+    current_time += (0.5 * 60 * 60)
   end
   onsite_meetings.each do |meeting|
     #TODO Fix the formatting
-    puts "#{current_time % 12} - #{(meeting[:duration] + current_time) % 12} - #{meeting[:name]} - #{meeting[:type]}"
-    current_time += meeting[:duration]
+    puts "#{current_time.hour} - #{(meeting[:duration] + current_time.hour)} - #{meeting[:name]} - #{meeting[:type]}"
+    current_time += (meeting[:duration] * 60 * 60)
   end
 
 
@@ -123,5 +125,7 @@ def test_schedule(schedule)
 end
 
 test_schedule(example_1)
+puts ""
 test_schedule(example_2)
+puts ""
 test_schedule(example_3)
