@@ -62,6 +62,7 @@ def test_schedule(schedule)
 
   available_work_hours = 8
   proposed_work_hours = 0
+  start_of_the_work_day = 9
 
   offsite_meetings = []
   onsite_meetings = []
@@ -73,22 +74,18 @@ def test_schedule(schedule)
     else
         onsite_meetings.push(meeting)
     end
-
-    # puts meeting[:name]
    end
 
-  # puts "Offsite Meetings:"
-  # puts offsite_meetings
 
   # Start by testing the offsite meetings
   offsite_meetings.each do |meeting|
     proposed_work_hours += meeting[:duration]
 
     #Add an additional 30 minutes of travel time that occurs after meeting conclusion
-    # If there are no onsite meetings, we will deduct a .5 since the last meeting's post-travel can occur after working hours
     proposed_work_hours += 0.5
   end
 
+  # If there are no onsite meetings, we will deduct a .5 since the last meeting's post-travel can occur after working hours
   if(onsite_meetings.size == 0)
     proposed_work_hours -= 0.5
   end
@@ -102,6 +99,19 @@ def test_schedule(schedule)
   else
     puts "Schedule Will Fit"
   end
+
+
+
+  #Next print out a possible schedule with the correct times
+
+  current_time = start_of_the_work_day
+  offsite_meetings.each do |meeting|
+    #TODO Fix the formatting
+    puts "#{current_time % 12} - #{(meeting[:duration] + current_time) % 12} - #{meeting[:name]}"
+  end
+
+
+
 
 end
 
