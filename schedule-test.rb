@@ -60,12 +60,8 @@ def test_schedule(schedule)
   # In that case, we could opt for an algorithm that would test each combination of the meetings (this type of combinatorial algorithm could get unwieldy if provided a lot of meetings, but there are some optimizations that could help).
   # The algorithm could then provide several different options based on which orderings were valid.
 
-  example_3 = [
-      { name: "Meeting 1", duration: 0.5, type: :offsite },
-      { name: "Meeting 2", duration: 0.5, type: :onsite },
-      { name: "Meeting 3", duration: 2.5, type: :offsite },
-      { name: "Meeting 4", duration: 3, type: :onsite }
-  ]
+  available_work_hours = 8
+  proposed_work_hours = 0
 
   offsite_meetings = []
   onsite_meetings = []
@@ -81,8 +77,27 @@ def test_schedule(schedule)
     puts meeting[:name]
    end
 
-  puts "Offsite Meetings:"
-  puts offsite_meetings
+  # puts "Offsite Meetings:"
+  # puts offsite_meetings
+
+  # Start by testing the offsite meetings
+  offsite_meetings.each do |meeting|
+    proposed_work_hours += meeting[:duration]
+
+    #Add an additional 30 minutes of travel time that occurs after meeting conclusion
+    # If there are no onsite meetings, we will deduct a .5 since the last meeting's post-travel can occur after working hours
+    proposed_work_hours += .5
+  end
+
+  if(onsite_meetings.size == 0)
+    proposed_work_hours -= .5
+  end
+
+  # #TODO verify this is only run if offsite_meetings is populated
+  # offsite_meetings.last do |meeting|
+  #
+  # end
+
   puts "Onsite Meetings:"
   puts onsite_meetings
 
