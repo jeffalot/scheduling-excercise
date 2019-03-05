@@ -142,7 +142,7 @@ def test_schedule(schedule)
       # Split the time assignment out to here
       meeting_end_time += (meeting[:duration] * 60 * 60)
 
-      puts "#{current_time.strftime("%l:%M")} - #{meeting_end_time.strftime("%l:%M")} - #{meeting[:name]} - #{meeting[:type]}"
+      puts "#{current_time.strftime("%l:%M")} - #{meeting_end_time.strftime("%l:%M")} - #{meeting[:name]}"
 
       #Move Current_Time Forward and Add Buffer for Travel
       current_time += (meeting[:duration] * 60 * 60)
@@ -156,7 +156,7 @@ def test_schedule(schedule)
       # Split the time assignment out to here
       meeting_end_time += (meeting[:duration] * 60 * 60)
 
-      puts "#{current_time.strftime("%l:%M")} - #{meeting_end_time.strftime("%l:%M")} - #{meeting[:name]} - #{meeting[:type]}"
+      puts "#{current_time.strftime("%l:%M")} - #{meeting_end_time.strftime("%l:%M")} - #{meeting[:name]}"
       current_time += (meeting[:duration] * 60 * 60)
 
       #Set meeting_end_time to match current_time
