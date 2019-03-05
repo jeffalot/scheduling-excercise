@@ -49,6 +49,36 @@ example_3 = [
 # 2:30 - 5:00 - Meeting 3
 
 
+# Example 4 - All On-Site Meetings, Should Fit
+example_4 = [
+    {name: "Meeting 1", duration: 1, type: :onsite},
+    {name: "Meeting 2", duration: 0.5, type: :onsite},
+    {name: "Meeting 3", duration: 0.5, type: :onsite},
+    {name: "Meeting 4", duration: 2, type: :onsite},
+    {name: "Meeting 5", duration: 1, type: :onsite},
+    {name: "Meeting 6", duration: 1, type: :onsite},
+    {name: "Meeting 7", duration: 1, type: :onsite},
+    {name: "Meeting 8", duration: 1, type: :onsite}
+
+]
+
+# Example 5 - All Off-Site Meetings, Should Fit
+example_5 = [
+    {name: "Meeting 1", duration: 1, type: :offsite},
+    {name: "Meeting 2", duration: 0.5, type: :offsite},
+    {name: "Meeting 3", duration: 0.5, type: :offsite},
+    {name: "Meeting 4", duration: 2, type: :offsite},
+    {name: "Meeting 5", duration: 1, type: :offsite},
+    {name: "Meeting 6", duration: 0.5, type: :offsite}
+
+]
+#1 - 9 - 10
+# 2 - 10:30 - 11
+# 3 - 11:30 - 12
+# 4 - 12:30 - 2:30
+# 5 - 3:00 - 4:00
+# 6 - 4:30 - 5:00
+
 #Function to test a single schedule example
 def test_schedule(schedule)
   # Logical Flow of Testing a Schedule
@@ -99,6 +129,9 @@ def test_schedule(schedule)
     puts "Schedule Won't Fit"
   else
     puts "Schedule Will Fit"
+
+    #Begin printing possible solution
+
   end
 
 
@@ -140,8 +173,16 @@ def test_schedule(schedule)
 
 end
 
+puts "Example 1:"
 test_schedule(example_1)
 puts ""
+puts "Example 2:"
 test_schedule(example_2)
 puts ""
+puts "Example 3:"
 test_schedule(example_3)
+puts ""
+puts "Example 4:"
+test_schedule(example_4)
+puts "Example 5:"
+test_schedule(example_5)
