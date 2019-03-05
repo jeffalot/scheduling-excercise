@@ -1,4 +1,5 @@
 puts "Testing Built-in Schedules"
+puts ""
 
 #Examples
 
@@ -106,17 +107,32 @@ def test_schedule(schedule)
 
   puts "One possible solution would be:"
   current_time = Time.new(1991, 01, 01, start_of_the_work_day, 0, 0, "+05:00")
+  meeting_end_time = current_time
 
   offsite_meetings.each do |meeting|
-    #TODO Fix the formatting
-    puts "#{current_time.hour} - #{(meeting[:duration] + current_time.hour)} - #{meeting[:name]} - #{meeting[:type]}"
+    # Split the time assignment out to here
+    meeting_end_time += (meeting[:duration] * 60 * 60)
+
+    puts "#{current_time.strftime("%l:%M")} - #{meeting_end_time.strftime("%l:%M")} - #{meeting[:name]} - #{meeting[:type]}"
+
+    #Move Current_Time Forward and Add Buffer for Travel
     current_time += (meeting[:duration] * 60 * 60)
     current_time += (0.5 * 60 * 60)
+
+    #Set meeting_end_time to match current_time
+    meeting_end_time = current_time
+
   end
   onsite_meetings.each do |meeting|
-    #TODO Fix the formatting
-    puts "#{current_time.hour} - #{(meeting[:duration] + current_time.hour)} - #{meeting[:name]} - #{meeting[:type]}"
+    # Split the time assignment out to here
+    meeting_end_time += (meeting[:duration] * 60 * 60)
+
+    puts "#{current_time.strftime("%l:%M")} - #{meeting_end_time.strftime("%l:%M")} - #{meeting[:name]} - #{meeting[:type]}"
     current_time += (meeting[:duration] * 60 * 60)
+
+    #Set meeting_end_time to match current_time
+    meeting_end_time = current_time
+
   end
 
 
