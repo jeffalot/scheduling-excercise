@@ -1,7 +1,7 @@
 # scheduling-excercise
 Excercise in Ruby to determine whether a set of meetings can fit within a 9 to 5 schedule
 
-## Instruction
+## Instructions
 
 Run schedule-test.rb on the commandline using ruby.exe to see example output
 ```
